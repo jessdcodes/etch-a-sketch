@@ -2,14 +2,15 @@ function sketch(e){
     this.style.backgroundColor ="rgb(213, 180, 221)";
 }
 
-function loadBoard() {
+function loadBoard(size) {
     const board = document.querySelector(".board");
-    board.style.gridTemplateColumns = "repeat(16, 1fr)";
-    board.style.gridTemplateRows = "repeat(16, 1fr)";
+    board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-    for(let i = 0; i < 16*16; i++){
+    for(let i = 0; i < size*size; i++){
         const squareDiv = document.createElement("div");
         squareDiv.classList.add("square");
+        squareDiv.style.backgroundColor = "white";
         board.insertAdjacentElement("afterbegin", squareDiv);
     }
 
@@ -25,11 +26,12 @@ function promptGridSizeInput(){
     if(gridSize < 2 || gridSize > 100){
       promptGridSizeInput();
     } else {
-      console.log("Input accepted, gridSize = "+gridSize);
+      loadBoard(gridSize);
     }
 }
 
-loadBoard();
+
+loadBoard(16);
 
 const gridBtn = document.querySelector("#grid-size-btn");
 gridBtn.addEventListener('click', promptGridSizeInput);
