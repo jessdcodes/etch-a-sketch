@@ -1,5 +1,4 @@
 function sketch(e){
-    console.log(e);
     this.style.backgroundColor ="rgb(213, 180, 221)";
 }
 
@@ -20,4 +19,17 @@ function loadBoard() {
     });
 }
 
+function promptGridSizeInput(){
+    const gridSize = prompt("Enter grid size (2-100): ");
+
+    if(gridSize < 2 || gridSize > 100){
+      promptGridSizeInput();
+    } else {
+      console.log("Input accepted, gridSize = "+gridSize);
+    }
+}
+
 loadBoard();
+
+const gridBtn = document.querySelector("#grid-size-btn");
+gridBtn.addEventListener('click', promptGridSizeInput);
