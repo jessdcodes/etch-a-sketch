@@ -1,5 +1,5 @@
 function sketch(e){
-    this.style.backgroundColor ="rgb(213, 180, 221)";
+    this.style.backgroundColor ="black";
 }
 
 function loadBoard(size) {
@@ -30,8 +30,21 @@ function promptGridSizeInput(){
     }
 }
 
+function resetBoard(){
+    const squareDivs = document.querySelectorAll(".square");
+    squareDivs.forEach(div => {
+        div.style.backgroundColor = "white";
+    });
+}
+
+function addBtnActions(){
+    const gridBtn = document.querySelector("#grid-size-btn");
+    gridBtn.addEventListener('click', promptGridSizeInput);
+
+    const resetBtn = document.querySelector("#reset-btn");
+    resetBtn.addEventListener('click', resetBoard);
+}
 
 loadBoard(16);
 
-const gridBtn = document.querySelector("#grid-size-btn");
-gridBtn.addEventListener('click', promptGridSizeInput);
+addBtnActions();

@@ -3,16 +3,21 @@
     <head>
         <!-- styles -->
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     </head>
     <body>
         <div class="container">
             <header>
                 <h1>Etch-a-Sketch</h1>
             </header>
-            <div class="options">
-                <button id="grid-size-btn">Set Grid Size</button>
-            </div>
             <div class="board"></div>
+
+            <div class="options">
+                <button id="grid-size-btn" class="setting-btn"><i class="fa-solid fa-table-cells fa-2x btn-icon"></i></button>
+                <button id="reset-btn" class="setting-btn"><i class="fa-solid fa-eraser fa-2x btn-icon"></i></button>
+            </div>
+            
             
         </div>
     </body>
