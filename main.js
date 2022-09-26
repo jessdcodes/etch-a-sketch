@@ -1,5 +1,7 @@
 function sketch(e){
-    this.style.backgroundColor ="black";
+    let colorPicker = document.querySelector("#color-picker");
+    let currentColor = colorPicker.value;
+    this.style.backgroundColor = currentColor;
 }
 
 function loadBoard(size) {

@@ -1,21 +1,31 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
         <!-- styles -->
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     </head>
     <body>
         <div class="container">
             <header>
-                <h1>Etch-a-Sketch</h1>
+                <h1>ETCH-A-SKETCH</h1>
             </header>
             <div class="board"></div>
 
             <div class="options">
                 <button id="grid-size-btn" class="setting-btn"><i class="fa-solid fa-table-cells fa-2x btn-icon"></i></button>
                 <button id="reset-btn" class="setting-btn"><i class="fa-solid fa-eraser fa-2x btn-icon"></i></button>
+                <label for="color-picker">
+                    <input type="color" id="color-picker" name="color" value="#000000">
+                </label>
+                
             </div>
             
             
