@@ -12,7 +12,6 @@ function sketch(e){
         this.style.backgroundColor = selectedColor;  
     } else {
         let rgb = getRGBValues(currentColor);
-        console.log (rgb);
         this.style.backgroundColor = reduceRGB(rgb);
     }
 
@@ -32,7 +31,7 @@ function loadBoard(size) {
 
     const squareDivs = document.querySelectorAll(".square");
     squareDivs.forEach(div => {
-        div.addEventListener('mouseover', sketch);
+        div.addEventListener("mouseover", sketch);
     });
 }
 
@@ -55,10 +54,39 @@ function resetBoard(){
 
 function addBtnActions(){
     const gridBtn = document.querySelector("#grid-size-btn");
-    gridBtn.addEventListener('click', promptGridSizeInput);
+    gridBtn.addEventListener("click", promptGridSizeInput);
 
     const resetBtn = document.querySelector("#reset-btn");
-    resetBtn.addEventListener('click', resetBoard);
+    resetBtn.addEventListener("click", resetBoard);
+}
+
+function addModeToggleActions(){
+    const colorMode = document.querySelector("input[id=color-mode]");
+    const blackMode = document.querySelector("input[id=black-mode]");
+    const selectionMode = document.querySelector("input[id=selection-mode]");
+
+    colorMode.addEventListener("click", disableColorPicker);
+    blackMode.addEventListener("click", disableColorPicker);
+    selectionMode.addEventListener("click", enableColorPicker);
+}
+
+function disableColorPicker(){
+    let colorPicker = document.querySelector("#color-picker");
+    colorPicker.disabled = true;
+    colorPicker.style.backgroundColor = "#e4e4e4";
+}
+
+function enableColorPicker(){
+    let colorPicker = document.querySelector("#color-picker");
+    colorPicker.disabled = false;
+    colorPicker.style.backgroundColor = "#FFF5AB";
+
+    colorPicker.addEventListener("mouseenter", () => {
+        colorPicker.style.backgroundColor = "#ffED64";
+    });
+    colorPicker.addEventListener("mouseleave", () => {
+        colorPicker.style.backgroundColor = "#FFF5AB";
+    });
 }
 
 function getRandomColor(){
@@ -71,11 +99,11 @@ function getRandomColor(){
 }
 
 function getRGBValues(str) {
-    let rgbValues = str.substring(str.indexOf('(') +1, str.length -1).split(', ');
+    let rgbValues = str.substring(str.indexOf("(") +1, str.length -1).split(", ");
     return {
-      'r': rgbValues[0],
-      'g': rgbValues[1],
-      'b': rgbValues[2]
+      "r": rgbValues[0],
+      "g": rgbValues[1],
+      "b": rgbValues[2]
     };
   }
 
@@ -95,10 +123,12 @@ function reduceRGB(rgb){
         updatedRgb[key] = reducedColor;
     }
 
-    const rgbStr = `rgb(${updatedRgb['r']}, ${updatedRgb['g']}, ${updatedRgb['b']})`;
+    const rgbStr = `rgb(${updatedRgb["r"]}, ${updatedRgb["g"]}, ${updatedRgb["b"]})`;
     return rgbStr;
 }
 
 loadBoard(16);
 
 addBtnActions();
+addModeToggleActions();
+disableColorPicker();
