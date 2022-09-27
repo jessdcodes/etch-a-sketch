@@ -1,17 +1,21 @@
 function sketch(e){
     let colorPicker = document.querySelector("#color-picker");
-    let currentColor = colorPicker.value;
+    let selectedColor = colorPicker.value;
 
     let mode = document.querySelector("input[name=mode-switch]:checked");
     let currentMode = mode.value;
 
+    let currentColor = this.style.backgroundColor;
     if(currentMode==="color-mode") {
-        this.style.backgroundColor = getRandomColor();
+            this.style.backgroundColor = getRandomColor();
     } else if (currentMode==="selection-mode") {
-        this.style.backgroundColor = currentColor;  
+        this.style.backgroundColor = selectedColor;  
+    } else {
+        let rgb = getRGBValues(currentColor);
+        console.log (rgb);
+        this.style.backgroundColor = reduceRGB(rgb);
     }
 
-      
 }
 
 function loadBoard(size) {
@@ -22,7 +26,7 @@ function loadBoard(size) {
     for(let i = 0; i < size*size; i++){
         const squareDiv = document.createElement("div");
         squareDiv.classList.add("square");
-        squareDiv.style.backgroundColor = "white";
+        squareDiv.style.backgroundColor = "rgb(255,255,255)";
         board.insertAdjacentElement("afterbegin", squareDiv);
     }
 
@@ -64,6 +68,35 @@ function getRandomColor(){
     const randomColor = "rgb("+red+","+green+","+blue+")";
 
     return randomColor;
+}
+
+function getRGBValues(str) {
+    let rgbValues = str.substring(str.indexOf('(') +1, str.length -1).split(', ');
+    return {
+      'r': rgbValues[0],
+      'g': rgbValues[1],
+      'b': rgbValues[2]
+    };
+  }
+
+function reduceRGB(rgb){
+    let updatedRgb = {};
+
+    for(const key in rgb){
+        // Reduce 12 percent of rgb value for darker shade 
+        let reducedColor = rgb[key] - (255 *0.12);
+        if(reducedColor > 0) {
+            rgb[key] = reducedColor;
+        } else {
+            // Max value for dark/black shade
+            reducedColor = 0;
+        }
+
+        updatedRgb[key] = reducedColor;
+    }
+
+    const rgbStr = `rgb(${updatedRgb['r']}, ${updatedRgb['g']}, ${updatedRgb['b']})`;
+    return rgbStr;
 }
 
 loadBoard(16);
