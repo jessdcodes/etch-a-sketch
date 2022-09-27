@@ -1,7 +1,17 @@
 function sketch(e){
     let colorPicker = document.querySelector("#color-picker");
     let currentColor = colorPicker.value;
-    this.style.backgroundColor = currentColor;
+
+    let mode = document.querySelector("input[name=mode-switch]:checked");
+    let currentMode = mode.value;
+
+    if(currentMode==="color-mode") {
+        this.style.backgroundColor = getRandomColor();
+    } else if (currentMode==="selection-mode") {
+        this.style.backgroundColor = currentColor;  
+    }
+
+      
 }
 
 function loadBoard(size) {
@@ -51,7 +61,7 @@ function getRandomColor(){
     const red = Math.floor(Math.random() * 256);
     const green = Math.floor(Math.random() * 256);
     const blue = Math.floor(Math.random() * 256);
-    const randomColor = rgb("rgb("+red+","+green+","+blue+")");
+    const randomColor = "rgb("+red+","+green+","+blue+")";
 
     return randomColor;
 }
