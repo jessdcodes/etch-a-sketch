@@ -9,7 +9,7 @@ body {
 .board {
     width: 480px;
     height: 480px;
-    border: solid 2px black;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
     border-radius: 5px;
     display: grid;
     margin: 10px auto;
@@ -26,45 +26,47 @@ h1 {
     margin-bottom: 10px;
     overflow: hidden;
     justify-content: center;
+    
 }
 
 .modes-switch input {
-position: absolute !important;
-clip: rect(0, 0, 0, 0);
-height: 1px;
-width: 1px;
-border: 0;
-overflow: hidden;
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
 }
 
 .modes-switch label {
-background-color: #e4e4e4;
-color: rgba(0, 0, 0, 0.6);
-font-size: 14px;
-line-height: 1;
-text-align: center;
-padding: 8px 16px;
-margin-right: -1px;
-border: 1px solid rgba(0, 0, 0, 0.2);
-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-transition: all 0.1s ease-in-out;
+    background-color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight:bolder;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    margin-right: -1px;
+    border: 2px solid #FFF5AB;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.1s ease-in-out;
 }
 
 .modes-switch label:hover {
-cursor: pointer;
+    cursor: pointer;
 }
 
 .modes-switch input:checked + label {
-background-color: #FFF5AB;
-box-shadow: none;
+    background-color: #FFF5AB;
+    box-shadow: none;
 }
 
 .modes-switch label:first-of-type {
-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
 }
 
 .modes-switch label:last-of-type {
-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
 }
 
 .setting-btn {

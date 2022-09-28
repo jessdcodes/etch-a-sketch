@@ -6,9 +6,9 @@ function sketch(e){
     let currentMode = mode.value;
 
     let currentColor = this.style.backgroundColor;
-    if(currentMode==="color-mode") {
+    if(currentMode==="rainbow-mode") {
             this.style.backgroundColor = getRandomColor();
-    } else if (currentMode==="selection-mode") {
+    } else if (currentMode==="color-mode") {
         this.style.backgroundColor = selectedColor;  
     } else {
         let rgb = getRGBValues(currentColor);
@@ -61,13 +61,13 @@ function addBtnActions(){
 }
 
 function addModeToggleActions(){
-    const colorMode = document.querySelector("input[id=color-mode]");
+    const rainbowMode = document.querySelector("input[id=rainbow-mode]");
     const blackMode = document.querySelector("input[id=black-mode]");
-    const selectionMode = document.querySelector("input[id=selection-mode]");
+    const colorMode = document.querySelector("input[id=color-mode]");
 
-    colorMode.addEventListener("click", disableColorPicker);
+    rainbowMode.addEventListener("click", disableColorPicker);
     blackMode.addEventListener("click", disableColorPicker);
-    selectionMode.addEventListener("click", enableColorPicker);
+    colorMode.addEventListener("click", enableColorPicker);
 }
 
 function disableColorPicker(){
