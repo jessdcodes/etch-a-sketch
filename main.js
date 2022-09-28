@@ -127,8 +127,22 @@ function reduceRGB(rgb){
     return rgbStr;
 }
 
+function updateGridSizeDisplay(){
+
+}
+
+function addSizeRangeActions(){
+    let sizeSlider = document.querySelector("#size-slider");
+    sizeSlider.addEventListener("change", (e) => {
+        console.log(e.value);
+        updateGridSizeDisplay(e.value);
+        loadBoard(e.value);
+    });
+}
+
 loadBoard(16);
 
 addBtnActions();
 addModeToggleActions();
 enableColorPicker();
+addSizeRangeActions();
