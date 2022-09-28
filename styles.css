@@ -12,15 +12,28 @@ body {
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
     border-radius: 5px;
     display: grid;
-    margin: 10px auto;
+    margin-bottom: 10px;
+    
 }
 
 h1 {
-    font-size: 24px;
-    margin-top: 30px;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
+.main {
+    display: flex;
+    justify-content: center;
+    margin-right: 50px;
+}
 
+.options {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    
+}
 .modes-switch {
     display: flex;
     margin-bottom: 10px;
@@ -70,10 +83,11 @@ h1 {
 }
 
 .setting-btn {
-    background-color: #FFF5AB;
-    border:none;
+    background-color: white;
+    border: solid 2px #C449C2;
     padding: 7px;
     border-radius:4px;
+    margin-bottom: 10px;
 }
 
 .setting-btn:hover {
@@ -86,10 +100,10 @@ h1 {
 }
 
 #color-picker {
-    background-color: #FFF5AB;
-    border:none;
-    height: 40.67px;
-    width: 40.67px;
+    background-color: white;
+    border: solid 2px #C449C2;
+    height: 42px;
+    width: 42px;
     padding: 7px;
     border-radius:4px;
 }

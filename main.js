@@ -79,13 +79,13 @@ function disableColorPicker(){
 function enableColorPicker(){
     let colorPicker = document.querySelector("#color-picker");
     colorPicker.disabled = false;
-    colorPicker.style.backgroundColor = "#FFF5AB";
+    colorPicker.style.backgroundColor = "white";
 
     colorPicker.addEventListener("mouseenter", () => {
         colorPicker.style.backgroundColor = "#ffED64";
     });
     colorPicker.addEventListener("mouseleave", () => {
-        colorPicker.style.backgroundColor = "#FFF5AB";
+        colorPicker.style.backgroundColor = "white";
     });
 }
 
@@ -131,4 +131,4 @@ loadBoard(16);
 
 addBtnActions();
 addModeToggleActions();
-disableColorPicker();
+enableColorPicker();

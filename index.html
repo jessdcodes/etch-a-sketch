@@ -17,23 +17,26 @@
             <header>
                 <h1>ETCH-A-SKETCH</h1>
             </header>
-            <div class="board"></div>
-
-            <div class="options">
-                <div class="modes-switch">
-                    <input type="radio" id="color-mode" name="mode-switch" value="color-mode" />
-                    <label for="color-mode">COLOR</label>
-                    <input type="radio" id="black-mode" name="mode-switch" value="black-mode" checked/>
-                    <label for="black-mode">BLACK</label>
-                    <input type="radio" id="rainbow-mode" name="mode-switch" value="rainbow-mode" />
-                    <label for="rainbow-mode">RAINBOW</label>
+            <main class="main">
+                <div class="options">
+                    <button id="grid-size-btn" class="setting-btn"><i class="fa-solid fa-table-cells fa-2x btn-icon"></i></button>
+                    <button id="reset-btn" class="setting-btn"><i class="fa-solid fa-eraser fa-2x btn-icon"></i></button>
+                    <label for="color-picker">
+                        <input type="color" id="color-picker" name="color" value="#000000">
+                    </label>
                 </div>
-                <button id="grid-size-btn" class="setting-btn"><i class="fa-solid fa-table-cells fa-2x btn-icon"></i></button>
-                <button id="reset-btn" class="setting-btn"><i class="fa-solid fa-eraser fa-2x btn-icon"></i></button>
-                <label for="color-picker">
-                    <input type="color" id="color-picker" name="color" value="#000000">
-                </label>
+                <div class="board"></div>
+            </main>
+            
+            <div class="modes-switch">
+                <input type="radio" id="color-mode" name="mode-switch" value="color-mode" checked/>
+                <label for="color-mode">COLOR</label>
+                <input type="radio" id="black-mode" name="mode-switch" value="black-mode"/>
+                <label for="black-mode">BLACK</label>
+                <input type="radio" id="rainbow-mode" name="mode-switch" value="rainbow-mode"/>
+                <label for="rainbow-mode">RAINBOW</label>
             </div>
+            
             
             
         </div>
