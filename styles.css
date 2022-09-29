@@ -30,14 +30,13 @@ h1 {
     margin:0;
 }
 
-#sizeSlider {
+#size-slider {
     background-color: white;
     color: #C449C2;
-    appearance: none;
+    -webkit-appearance: none;
     border-radius: 10px;
     height: 5px;
 }
-
 input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none !important;
     background:white;
@@ -45,8 +44,6 @@ input[type='range']::-webkit-slider-thumb {
     width:10px;
     border: solid 4px #C449C2;
 }
-
-
 
 .main {
     display: flex;
