@@ -26,7 +26,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-#sizeDisplay {
+#size-display {
     margin:0;
 }
 
@@ -35,14 +35,16 @@ h1 {
     color: #C449C2;
     -webkit-appearance: none;
     border-radius: 10px;
-    height: 5px;
+    width: 200px;
+    height: 7px;
 }
 input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none !important;
     background:white;
-    height:15px;
+    height:18px;
     width:10px;
     border: solid 4px #C449C2;
+    border-radius:3px;
 }
 
 .main {
