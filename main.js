@@ -35,16 +35,6 @@ function loadBoard(size) {
     });
 }
 
-function promptGridSizeInput(){
-    const gridSize = prompt("Enter grid size (2-100): ");
-
-    if(gridSize < 2 || gridSize > 100){
-      promptGridSizeInput();
-    } else {
-      loadBoard(gridSize);
-    }
-}
-
 function resetBoard(){
     const squareDivs = document.querySelectorAll(".square");
     squareDivs.forEach(div => {
@@ -53,9 +43,6 @@ function resetBoard(){
 }
 
 function addBtnActions(){
-    const gridBtn = document.querySelector("#grid-size-btn");
-    gridBtn.addEventListener("click", promptGridSizeInput);
-
     const resetBtn = document.querySelector("#reset-btn");
     resetBtn.addEventListener("click", resetBoard);
 }
