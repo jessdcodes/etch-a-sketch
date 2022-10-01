@@ -6,15 +6,19 @@ function sketch(e){
     let currentMode = mode.value;
 
     let currentColor = this.style.backgroundColor;
-    if(currentMode==="rainbow-mode") {
-            this.style.backgroundColor = getRandomColor();
-    } else if (currentMode==="color-mode") {
-        this.style.backgroundColor = selectedColor;  
-    } else {
-        let rgb = getRGBValues(currentColor);
-        this.style.backgroundColor = reduceRGB(rgb);
-    }
 
+    if(eraseMode()){
+        this.style.backgroundColor = "rgb(255,255,255)";
+    } else {
+        if(currentMode==="rainbow-mode") {
+            this.style.backgroundColor = getRandomColor();
+        } else if (currentMode==="color-mode") {
+            this.style.backgroundColor = selectedColor;  
+        } else if (currentMode==="black-mode"){
+            let rgb = getRGBValues(currentColor);
+            this.style.backgroundColor = reduceRGB(rgb);
+        }
+    }
 }
 
 function loadBoard(size) {
@@ -42,7 +46,38 @@ function resetBoard(){
     });
 }
 
+function eraseMode(){
+    const eraserBtn = document.querySelector("#eraser-btn");
+    const eraserBtnHover = "rgb(255, 237, 100)";
+    console.log(eraserBtn.style.backgroundColor+", "+eraserBtnHover);
+    if(eraserBtn.style.backgroundColor === eraserBtnHover){
+        return true;
+    }
+
+    return false;
+}
+
+function clickEraser(){
+    const eraserBtn = document.querySelector("#eraser-btn");
+    const eraserBtnDefault = "rgb(255, 255, 255)";
+    const eraserBtnHover = "rgb(255, 237, 100)";
+
+    console.log("inside click"+eraserBtn.style.backgroundColor+", "+eraserBtnHover);
+    // to enable the button
+    if(eraserBtn.style.backgroundColor != eraserBtnHover){
+        eraserBtn.style.backgroundColor = eraserBtnHover;
+    } 
+    // to disable the button
+    else {
+        eraserBtn.style.backgroundColor = eraserBtnDefault;
+    }
+    
+}
+
 function addBtnActions(){
+    const eraserBtn = document.querySelector("#eraser-btn");
+    eraserBtn.addEventListener("click", clickEraser);
+
     const resetBtn = document.querySelector("#reset-btn");
     resetBtn.addEventListener("click", resetBoard);
 }
