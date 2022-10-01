@@ -38,7 +38,7 @@ function loadBoard(size) {
 function resetBoard(){
     const squareDivs = document.querySelectorAll(".square");
     squareDivs.forEach(div => {
-        div.style.backgroundColor = "white";
+        div.style.backgroundColor = "rgb(255,255,255)";
     });
 }
 
